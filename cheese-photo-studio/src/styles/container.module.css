@@ -1,0 +1,10 @@
+.calendarContainer {
+    width: "95%";
+    height: "650px";
+    padding: "20px";
+    background-color: "white";
+    border-radius: "10px";
+    box-shadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.2)";
+    overflow: "hidden";
+    margin: "100px auto";
+}
