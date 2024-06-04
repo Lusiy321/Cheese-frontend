@@ -1,5 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const Calendar = dynamic(() => import("../components/Calendar"), {
   ssr: false,
@@ -7,18 +8,17 @@ const Calendar = dynamic(() => import("../components/Calendar"), {
 
 export default function Brie() {
   return (
-    <div
-      style={{
-        margin: "0 auto",
-      }}
-    >
+    <div>
+      <button>
+        <Link href="/">Назад</Link>
+      </button>
       <div
         style={{
           margin: "10px",
           textAlign: "center",
         }}
       >
-        <h1>Зал Бри</h1>
+        <h1>Зал Брі</h1>
       </div>
 
       <Calendar hall="brie" />
