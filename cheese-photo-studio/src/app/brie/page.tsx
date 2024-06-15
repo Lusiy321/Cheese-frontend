@@ -1,6 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import styles from "@/styles/main.module.css";
 
 const Calendar = dynamic(() => import("../components/Calendar"), {
   ssr: false,
@@ -8,8 +9,8 @@ const Calendar = dynamic(() => import("../components/Calendar"), {
 
 export default function Brie() {
   return (
-    <div>
-      <button>
+    <div className={styles.container}>
+      <button className={styles.buttonMain}>
         <Link href="/">Назад</Link>
       </button>
       <div

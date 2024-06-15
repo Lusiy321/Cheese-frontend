@@ -22,15 +22,16 @@
     background-color: #fff;
 }
 
+.fc .fc-timegrid-slot-minor {
+    border: none !important;
+    ;
+}
+
 .fc .fc-timegrid-slot {
     border-color: #eee;
     z-index: 1;
 }
 
-.fc .fc-timegrid-slot-lane {
-    border-color: #eee;
-    z-index: 1;
-}
 
 .fc .fc-event {
     background-color: #4c504c;
@@ -156,6 +157,11 @@
     .fc .fc-timegrid-slot-label-cushion,
     .fc .fc-col-header-cell-cushion {
         font-size: 10px;
+    }
+
+    .fc .fc-timegrid-slot-lane {
+        border-color: #fff;
+        border-bottom: 1px;
     }
 
     .fc-timegrid .fc-scroller {

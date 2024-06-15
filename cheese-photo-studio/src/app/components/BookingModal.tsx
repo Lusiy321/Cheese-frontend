@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,10 +9,20 @@ import styles from "@/styles/modal.module.css";
 
 const BookingModal = ({ selectedDate, hall, onClose, onBooking }: any) => {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [url, setUrl] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
+  console.log(endTime);
+  useEffect(() => {
+    const date = selectedDate.split("T");
+    const time = date[1].split("+");
 
+    setStartTime(time[0]);
+    const num = time[0].split(":");
+    const endTime = parseFloat(num[0]) + 1;
+
+    setEndTime(`${endTime}:00`);
+  }, [selectedDate]);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -33,7 +43,7 @@ const BookingModal = ({ selectedDate, hall, onClose, onBooking }: any) => {
     try {
       await axios.post("http://localhost:5000/bookings", {
         name,
-        phone,
+        url,
         start: `${selectedDate.split("T")[0]}T${startTime}:00`,
         end: `${selectedDate.split("T")[0]}T${endTime}:00`,
         hall,
@@ -103,12 +113,12 @@ const BookingModal = ({ selectedDate, hall, onClose, onBooking }: any) => {
             />
           </label>
           <label>
-            Телефон:
+            Посилання на Instagram:
             <input
               className={styles.input}
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              type="url"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
               required
             />
           </label>
