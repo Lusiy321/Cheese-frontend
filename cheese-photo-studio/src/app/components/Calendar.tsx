@@ -16,6 +16,7 @@ const Calendar = ({ hall }: any) => {
   const [events, setEvents] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const eventsForm = [
     {
       id: "1",
@@ -51,6 +52,23 @@ const Calendar = ({ hall }: any) => {
         price: 100,
       },
     },
+    {
+      id: "3",
+      title: "Бронь",
+      start: "2024-06-20T16:00:00",
+      end: "2024-06-20T17:00:00",
+      allDay: false,
+      url: "http://example.com/",
+      classNames: ["custom-class"],
+      editable: true,
+      startEditable: true,
+      durationEditable: true,
+      resourceId: "a",
+      extendedProps: {
+        description: "Описание события 1",
+        price: 100,
+      },
+    },
   ];
 
   const fetchEvents = async () => {
@@ -67,38 +85,8 @@ const Calendar = ({ hall }: any) => {
     setIsModalOpen(true);
   };
 
-  const renderEventContent = (eventInfo: any) => {
-    const isFreeSlot = true; // Add your logic to determine if the slot is free
-    const price = "100$"; // Replace with your price logic
-    return (
-      <div
-        style={{
-          height: "100%",
-          backgroundColor: isFreeSlot ? "green" : "white",
-          color: isFreeSlot ? "white" : "black",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {isFreeSlot && price}
-      </div>
-    );
-  };
-
   return (
-    <div
-      style={{
-        width: "90%",
-        height: "800px",
-        padding: "20px",
-        backgroundColor: "white",
-        borderRadius: "10px",
-        boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.2)",
-        overflow: "hidden",
-        margin: "10px auto",
-      }}
-    >
+    <div className="calendar">
       <FullCalendar
         plugins={[
           timeGridPlugin,
@@ -107,7 +95,7 @@ const Calendar = ({ hall }: any) => {
           interactionPlugin,
           listPlugin,
         ]}
-        initialView="timeGridWeek"
+        initialView="dayGridMonth"
         events={eventsForm}
         dateClick={handleDateClick}
         allDaySlot={false}
@@ -119,18 +107,17 @@ const Calendar = ({ hall }: any) => {
         headerToolbar={{
           left: "prev,next today",
           center: "title",
-          right: "timeGridWeek,timeGridDay,listWeek",
+          right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
         }}
         selectable={true}
         eventContent={(eventInfo) => (
           <div>
-            <p>{eventInfo.timeText}</p> <br />
-            <p>{eventInfo.event.title}</p>
+            <p className="event">
+              {eventInfo.timeText} {eventInfo.event.title}
+            </p>
           </div>
         )}
       />
-
-      {""}
 
       {isModalOpen && (
         <BookingModal

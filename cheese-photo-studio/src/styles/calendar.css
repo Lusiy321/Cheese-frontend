@@ -1,21 +1,49 @@
 /* Общие стили */
 
+.calendar {
+    width: 95%;
+    height: 750px;
+    padding: 20px;
+    background-color: #ffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    overflow: "hidden";
+    margin: 10px auto;
+}
+
+.event {
+    font-size: 14px;
+}
+
+.fc .fc-button {
+    background: #000;
+    color: rgb(253, 217, 53) !important;
+}
+
+.fc .fc-button-group .fc-button {
+    background: #000;
+}
+
 .fc .fc-toolbar {
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
 }
 
-.fc .fc-daygrid-day-number {
-    color: #333;
-}
 
 .fc .fc-toolbar.fc-header-toolbar {
     margin: 3%;
 }
 
 .fc .fc-scrollgrid-liquid {
-    width: 100%;
+    width: 95%;
     height: 555px;
+}
+
+.fc .fc-daygrid-event-harness {
+    height: 90% !important;
+    border: none;
+    cursor: pointer;
+    text-align: center;
 }
 
 .fc .fc-timegrid-col {
@@ -41,12 +69,18 @@
     border-radius: 4px;
 }
 
+.fc .fc-media-screen .fc-direction-ltr .fc-theme-standard {
+    height: 100px !important;
+}
+
 .fc .fc-license-message {
     width: 0px !important;
     height: 0px !important;
-    z-index: -1 !important;
-    font-size: 1px;
-    color: white !important;
+    z-index: -10 !important;
+    font-size: 1px !important;
+    color: rgb(253, 217, 53) !important;
+    background-color: rgb(253, 217, 53) !important;
+    border-color: rgb(253, 217, 53) !important;
 }
 
 .fc .fc-timegrid-axis-cushion,
@@ -99,10 +133,25 @@
         display: block !important;
     }
 
+    .calendar {
+        width: 99%;
+        height: 1100px;
+        padding: 20px;
+        background-color: #ffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        overflow: "hidden";
+        margin: 10px auto;
+    }
+
+    .event {
+        font-size: 8px;
+    }
+
     .calendar-container {
-        width: "95%";
-        height: "600px";
-        padding: "20px";
+        width: 95%;
+        height: 900px;
+        padding: 20px;
         background-color: "white";
         border-radius: "10px";
         box-shadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.2)";
@@ -133,11 +182,27 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        border-radius: 0;
     }
 
     .fc .fc-button {
         width: 100%;
-        margin: 5px 0;
+        height: 30px;
+        margin: 1px 0;
+        font-size: 9px;
+        padding: 0;
+        background-color: #000;
+        color: rgb(253, 217, 53);
+    }
+
+    .fc .fc-button:active {
+        width: 100%;
+        height: 30px;
+        margin: 1px 0;
+        font-size: 9px;
+        padding: 0;
+        background-color: #000;
+        color: rgb(253, 217, 53);
     }
 
     .fc .fc-event-time {
@@ -156,7 +221,7 @@
     .fc .fc-timegrid-axis-cushion,
     .fc .fc-timegrid-slot-label-cushion,
     .fc .fc-col-header-cell-cushion {
-        font-size: 10px;
+        font-size: px;
     }
 
     .fc .fc-timegrid-slot-lane {
@@ -170,11 +235,11 @@
 
     .fc .fc-scrollgrid {
         width: 100% !important;
-        height: 565px !important;
+        height: 800px !important;
     }
 
     .fc-view-harness .fc-view-harness-active {
         width: 100% !important;
-        height: 565px !important;
+        height: 865px !important;
     }
 }

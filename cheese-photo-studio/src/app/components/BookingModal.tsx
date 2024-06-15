@@ -6,23 +6,19 @@ import axios from "axios";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "@/styles/modal.module.css";
+import { start } from "repl";
 
 const BookingModal = ({ selectedDate, hall, onClose, onBooking }: any) => {
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
-  console.log(endTime);
+
   useEffect(() => {
-    const date = selectedDate.split("T");
-    const time = date[1].split("+");
-
-    setStartTime(time[0]);
-    const num = time[0].split(":");
-    const endTime = parseFloat(num[0]) + 1;
-
-    setEndTime(`${endTime}:00`);
-  }, [selectedDate]);
+    setStartTime("09:00");
+    setEndTime("10:00");
+  }, []);
+  console.log(startTime);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
